@@ -6,7 +6,7 @@
     Output: 2
 */
 
-import HashTable from "../structures/hashTable.ts";
+import HashTable from "../hashTable.ts";
 
 function firstRecurringElement(input : Array<number>) {
     let hashTable = new HashTable(20);

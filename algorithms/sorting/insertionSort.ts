@@ -1,23 +1,20 @@
 function insertionSort(array: Array<number>) {
     for (let i = 1; i < array.length; i++) {
-        let element = array[i];
+        let elementIndex = i;
         let previousElementIndex = i - 1;
 
-        while(true) {
-            if(array[previousElementIndex - 1] > element)
-                previousElementIndex--;
-            else
-                break;
+        while (array[previousElementIndex] > array[elementIndex]) {
+            swap(array, elementIndex, previousElementIndex)
+            elementIndex--;
+            previousElementIndex--;
         }
-
-        if (array[previousElementIndex] > element) 
-            moveElement(array, previousElementIndex, element, i);
     }
 }
 
-function moveElement(array: Array<number>, previousIndex: number, element: number, elementIndex: number) {
-    array.splice(previousIndex, 0, element);
-    array.splice(elementIndex + 1, 1);
+function swap(array: Array<number>, index1: number, index2: number) {
+    let temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
 }
 
 let array = [5, 4, 3, 2, 1]
